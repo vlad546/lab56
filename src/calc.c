@@ -3,7 +3,7 @@
 #include <locale.h>
 #include "calc.h"
 
-void calc(double a,double b,double c)
+void calc(double a,double b,double c, double *x1, double *x2)
 {
 	double d, x1 = 0, x2 = 0;
 	
