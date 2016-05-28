@@ -9,7 +9,7 @@ int main()
 {
 	setlocale(LC_CTYPE, "Russian");
 
-	double a, b, c;
+	double a, b, c, x1, x2;
 	
 	printf("Введите коэффициент при x^2: ");
 	scanf("%lf", &a);
