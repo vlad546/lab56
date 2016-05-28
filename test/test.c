@@ -3,33 +3,34 @@
 
 CTEST(solution_of_quadratic_equations, two_root)
 {
-	const int a = 1;
-	const int b = -3;
-	const int c = 2;
-   
-    float x1, x2;
-	const int result = calc(a, b, c, &x1, &x2);
+	const double a = 1;
+	const double b = -3;
+	const double c = 2;
+
+    double x1 , x2 ;
+    
+	const int status = calc(a, b, c, &x1, &x2);
 	
-	const float expected_x1 = 1, expected_x2 = 2;
+	const double expected_x1 = 1, expected_x2 = 2;
 	
 	ASSERT_DBL_NEAR(expected_x1, x1);
 	ASSERT_DBL_NEAR(expected_x2, x2);
-    ASSERT_EQUAL(FOUND_2_ROOT, result);
+    ASSERT_EQUAL(2, status);
 }
 
 CTEST(solution_of_quadratic_equations, one_root)
 {
-    const int a = 1;
-    const int b = -4;
-    const int c = 4;
+    const double a = 4;
+    const double b = -12;
+    const double c = 9;
 
-    float x1, x2;
-    const int result = calc(a, b, c, &x1, &x2);
+    double x1 , x2 ;
+    const int status = calc(a, b, c, &x1, &x2);
 
-    const float expected_x2 = 2;
+    const float expected_x1 = 1.5;
 
-    ASSERT_DBL_NEAR(expected_x2, x2);
-    ASSERT_EQUAL(FOUND_1_ROOT, result);
+    ASSERT_DBL_NEAR(expected_x1, x1);
+    ASSERT_EQUAL(1, status);
 }
 
 CTEST(solution_of_quadratic_equations, no_root)
@@ -41,18 +42,20 @@ CTEST(solution_of_quadratic_equations, no_root)
     float x1, x2;
     const int result = calc(a, b, c, &x1, &x2);
 
-    ASSERT_EQUAL(ROOT_NOT_FOUND, result);
+    const int ROOT_NOT_FOUND = 0;
+
+    ASSERT_EQUAL(0, result);
 }
 
 CTEST(solution_of_quadratic_equations, the_coefficients_are_not_correct)
 {
-   
+
     const int a = 0;
-    const int b = -2;
-    const int c = 10;
+    const int b = 1;
+    const int c = 9;
     
     float x1, x2;
     const int result = calc(a, b, c, &x1, &x2);
-   
-    ASSERT_EQUAL(INVALID_ARGUMENTS, result);
+    
+    ASSERT_EQUAL(-1, result);
 }
