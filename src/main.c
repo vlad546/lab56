@@ -18,7 +18,7 @@ int main()
 	printf("Введите свободный член: ");
 	scanf("%lf", &c);
 
-	calc(a,b,c);
+	calc(a,b,c,&x1,&x2);
 	
 	return 0;
 }
